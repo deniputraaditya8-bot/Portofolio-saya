@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Deni Putra Aditya - Excel Enthusiast, Data Processing, Administrative Support">
+    <meta name="keywords" content="Deni Putra Aditya, portofolio, Excel, Data Entry, Administrasi">
+    <meta name="author" content="Deni Putra Aditya">
+    <title>Deni Putra Aditya — Portofolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Libraries CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a5f',950:'#0f1d35' },
+                        dark: { 800:'#0f172a',900:'#020617',700:'#1e293b',600:'#334155' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="dark bg-dark-900 text-white font-body">
+
+<!-- Toast Notification -->
+<div id="toast" class="toast fixed top-24 right-6 z-[9999] bg-green-500 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+    <i class="fas fa-check-circle text-lg"></i>
+    <span id="toastMessage">Pesan berhasil dikirim!</span>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-glass bg-dark-900/80 dark:bg-dark-900/80 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-heading font-bold text-sm group-hover:scale-110 transition-transform">D</div>
+                <span class="font-heading font-bold text-lg text-white">Deni<span class="text-gradient">.dev</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#hero" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Beranda</a>
+                <a href="#about" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Tentang</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Keahlian</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Pengalaman</a>
+                <a href="#certificates" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Sertifikat</a>
+                <a href="#blog" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Blog</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Kontak</a>
+            </div>
+
+            <!-- Right controls -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggle" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all" aria-label="Toggle theme">
+                    <i class="fas fa-moon text-gray-400 dark-icon"></i>
+                    <i class="fas fa-sun text-yellow-400 light-icon hidden"></i>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:-translate-y-0.5">
+                    <i class="fas fa-paper-plane text-xs"></i> Hubungi
+                </a>
+                <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center" aria-label="Menu">
+                    <i class="fas fa-bars text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 z-[60] bg-dark-900/95 nav-glass border-l border-white/10 p-6 pt-20">
+    <button id="mobileMenuClose" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+        <i class="fas fa-times text-gray-400"></i>
+    </button>
+    <div class="flex flex-col gap-4">
+        <a href="#hero" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Beranda</a>
+        <a href="#about" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Tentang</a>
+        <a href="#skills" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Keahlian</a>
+        <a href="#experience" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Pengalaman</a>
+        <a href="#certificates" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Sertifikat</a>
+        <a href="#blog" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Blog</a>
+        <a href="#contact" class="mobile-nav-link text-lg font-medium text-gray-300 hover:text-white transition-colors py-2 border-b border-white/5">Kontak</a>
+        <a href="#contact" class="mt-4 text-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold px-6 py-3 rounded-xl">Hubungi Saya</a>
+    </div>
+</div>
+<div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+
+<!-- ============ HERO SECTION ============ -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <canvas id="hero-canvas"></canvas>
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-900/50 via-transparent to-dark-900 z-[1]"></div>
+
+    <div class="absolute top-1/4 -left-48 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-blob z-[1]"></div>
+    <div class="absolute bottom-1/4 -right-48 w-96 h-96 bg-cyan-500/15 rounded-full blur-[100px] animate-blob animation-delay-2000 z-[1]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] animate-blob animation-delay-4000 z-[1]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="order-2 lg:order-1">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
+                        </span>
+                        Tersedia untuk Bekerja
+                    </span>
+                </div>
+
+                <h1 data-aos="fade-up" data-aos-delay="100" class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+                    Halo, Saya<br>
+                    <span class="text-gradient">Deni Putra</span><br>
+                    <span class="text-gradient-accent">Aditya</span>
+                </h1>
+
+                <p data-aos="fade-up" data-aos-delay="200" class="text-lg sm:text-xl text-gray-400 font-light leading-relaxed mb-4 max-w-xl">
+                    Excel Enthusiast <span class="text-blue-400">|</span> Data Processing <span class="text-blue-400">|</span> Administrative Support
+                </p>
+
+                <p data-aos="fade-up" data-aos-delay="300" class="text-sm sm:text-base text-gray-500 font-light leading-relaxed mb-8 max-w-xl">
+                    "Saya memiliki kemampuan dalam pengolahan data menggunakan Microsoft Excel, administrasi dasar, serta pemahaman dasar dalam pemrograman. Saya senang belajar teknologi baru dan selalu berusaha meningkatkan keterampilan untuk memberikan hasil kerja yang efektif dan efisien."
+                </p>
+
+                <div data-aos="fade-up" data-aos-delay="400" class="flex flex-wrap gap-4 mb-10">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold px-7 py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:-translate-y-1">
+                        <i class="fas fa-envelope"></i> Hubungi Saya
+                    </a>
+                    <a href="assets/docs/CV-Deni-Putra-Aditya.pdf" download class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white text-sm font-bold px-7 py-4 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-1">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" class="flex gap-8 sm:gap-12">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-heading font-bold text-gradient">2+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Tahun Kerja</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-heading font-bold text-gradient">10+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Keahlian</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-heading font-bold text-gradient">3+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">Sertifikat</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 flex justify-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-cyan-500/20 rounded-full blur-[60px] scale-75"></div>
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-white/10 animate-float">
+                        <!-- Path Gambar Profil Lokal -->
+                        <img src="assets/img/profil.saya.jpeg" alt="Deni Putra Aditya" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="absolute -bottom-2 -right-2 sm:bottom-4 sm:right-0 bg-dark-800/90 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl" style="animation: float 5s ease-in-out infinite; animation-delay: 1s;">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center"><i class="fas fa-file-excel text-green-400 text-sm"></i></div>
+                            <div><div class="text-xs font-bold text-white">Excel</div><div class="text-[10px] text-gray-500">Advanced</div></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -top-2 -left-2 sm:top-4 sm:-left-6 bg-dark-800/90 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl" style="animation: float 6s ease-in-out infinite; animation-delay: 2s;">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center"><i class="fas fa-code text-blue-400 text-sm"></i></div>
+                            <div><div class="text-xs font-bold text-white">Coding</div><div class="text-[10px] text-gray-500">Beginner</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <span class="text-[10px] text-gray-500 uppercase tracking-widest">Scroll</span>
+        <div class="w-5 h-8 border-2 border-gray-600 rounded-full flex justify-center pt-1.5">
+            <div class="w-1 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============ TENTANG SAYA ============ -->
+<section id="about" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-user"></i> Tentang Saya</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Kenali Saya <span class="text-gradient">Lebih Dekat</span></h2>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div data-aos="fade-right" data-aos-delay="100">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative overflow-hidden rounded-3xl border border-white/10">
+                        <!-- Path Gambar About Lokal -->
+                        <img src="assets/img/Tentang.saya.jpeg" alt="Tentang Deni" class="w-full h-[400px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-dark-900/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex gap-4">
+                                <div class="bg-dark-800/80 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10"><div class="text-xs text-gray-400">Lokasi</div><div class="text-sm font-semibold text-white">Indonesia</div></div>
+                                <div class="bg-dark-800/80 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10"><div class="text-xs text-gray-400">Status</div><div class="text-sm font-semibold text-green-400">Tersedia</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200">
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold mb-6">Individu yang <span class="text-gradient">Disiplin & Teliti</span></h3>
+                <div class="space-y-4 text-gray-400 font-light leading-relaxed">
+                    <p>Saya adalah individu yang disiplin, teliti, dan bertanggung jawab. Memiliki pengalaman bekerja di bidang pelayanan pelanggan dan operasional usaha kuliner. Terbiasa bekerja dalam tim maupun secara mandiri serta mampu beradaptasi dengan lingkungan kerja yang dinamis.</p>
+                    <p>Selain itu saya memiliki ketertarikan pada bidang teknologi, khususnya pengolahan data menggunakan Microsoft Excel dan dasar-dasar pemrograman.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center"><i class="fas fa-user text-blue-400 text-sm"></i></div><div><div class="text-xs text-gray-500">Nama</div><div class="text-sm font-medium text-white">Deni Putra Aditya</div></div></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center"><i class="fas fa-briefcase text-blue-400 text-sm"></i></div><div><div class="text-xs text-gray-500">Fokus</div><div class="text-sm font-medium text-white">Data & Admin</div></div></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center"><i class="fas fa-language text-blue-400 text-sm"></i></div><div><div class="text-xs text-gray-500">Bahasa</div><div class="text-sm font-medium text-white">Indonesia, Inggris</div></div></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap text-blue-400 text-sm"></i></div><div><div class="text-xs text-gray-500">Belajar</div><div class="text-sm font-medium text-white">Coding & Data</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SKILL & TEKNOLOGI ============ -->
+<section id="skills" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-cogs"></i> Keahlian</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Skill & <span class="text-gradient">Teknologi</span></h2>
+            <p class="mt-4 text-gray-500 font-light max-w-xl mx-auto">Kemampuan yang terus saya kembangkan untuk memberikan hasil kerja yang optimal.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <!-- Microsoft Office -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-center gap-4 mb-6"><div class="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fas fa-file-word text-blue-400 text-lg"></i></div><h3 class="font-heading text-xl font-semibold text-white">Microsoft Office</h3></div>
+                <div class="space-y-4">
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Microsoft Excel</span><span class="text-xs font-semibold text-blue-400">Advanced - 90%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full" style="--skill-level: 90%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Microsoft Word</span><span class="text-xs font-semibold text-blue-400">Intermediate - 75%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full" style="--skill-level: 75%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Microsoft PowerPoint</span><span class="text-xs font-semibold text-blue-400">Intermediate - 70%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full" style="--skill-level: 70%"></div></div></div>
+                </div>
+            </div>
+            <!-- Data Processing -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-4 mb-6"><div class="w-12 h-12 bg-gradient-to-br from-cyan-600/20 to-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fas fa-database text-cyan-400 text-lg"></i></div><h3 class="font-heading text-xl font-semibold text-white">Data Processing</h3></div>
+                <div class="space-y-4">
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Data Entry</span><span class="text-xs font-semibold text-cyan-400">85%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="--skill-level: 85%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Data Cleaning</span><span class="text-xs font-semibold text-cyan-400">70%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="--skill-level: 70%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Data Analysis Dasar</span><span class="text-xs font-semibold text-cyan-400">65%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="--skill-level: 65%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Spreadsheet Management</span><span class="text-xs font-semibold text-cyan-400">80%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="--skill-level: 80%"></div></div></div>
+                </div>
+            </div>
+            <!-- Programming -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-4 mb-6"><div class="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fas fa-code text-purple-400 text-lg"></i></div><h3 class="font-heading text-xl font-semibold text-white">Programming</h3></div>
+                <div class="space-y-4">
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">HTML</span><span class="text-xs font-semibold text-purple-400">70%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="--skill-level: 70%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">CSS</span><span class="text-xs font-semibold text-purple-400">60%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="--skill-level: 60%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">JavaScript Dasar</span><span class="text-xs font-semibold text-purple-400">45%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="--skill-level: 45%"></div></div></div>
+                    <div><div class="flex justify-between mb-1.5"><span class="text-sm text-gray-400">Python Dasar</span><span class="text-xs font-semibold text-purple-400">40%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="--skill-level: 40%"></div></div></div>
+                </div>
+            </div>
+            <!-- Soft Skills -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center gap-4 mb-6"><div class="w-12 h-12 bg-gradient-to-br from-green-600/20 to-cyan-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fas fa-users text-green-400 text-lg"></i></div><h3 class="font-heading text-xl font-semibold text-white">Soft Skills</h3></div>
+                <div class="flex flex-wrap gap-3">
+                    <span class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-sm px-4 py-2 rounded-xl"><i class="fas fa-headset text-xs"></i> Customer Service</span>
+                    <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm px-4 py-2 rounded-xl"><i class="fas fa-comments text-xs"></i> Komunikasi</span>
+                    <span class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm px-4 py-2 rounded-xl"><i class="fas fa-people-group text-xs"></i> Teamwork</span>
+                    <span class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm px-4 py-2 rounded-xl"><i class="fas fa-lightbulb text-xs"></i> Problem Solving</span>
+                    <span class="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-sm px-4 py-2 rounded-xl"><i class="fas fa-clock text-xs"></i> Manajemen Waktu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PENGALAMAN KERJA ============ -->
+<section id="experience" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-1/2 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-briefcase"></i> Pengalaman</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Pengalaman <span class="text-gradient">Kerja</span></h2>
+        </div>
+        <div class="relative max-w-3xl mx-auto">
+            <div class="timeline-line hidden md:block"></div>
+            <div class="relative flex flex-col md:flex-row gap-8 mb-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full border-4 border-dark-900 z-10 pulse-ring"></div>
+                <div class="hidden md:block md:w-1/2"></div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-6 lg:p-8 group">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-red-500/10 rounded-xl flex items-center justify-center"><i class="fas fa-utensils text-orange-400"></i></div>
+                            <div><h3 class="font-heading text-lg font-semibold text-white">Crew Fried Chicken</h3><span class="text-xs text-blue-400 font-medium">2022 - 2023</span></div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Menggoreng ayam sesuai standar operasional</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Menjaga kualitas produk makanan</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Membersihkan area kerja dan peralatan memasak</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Melayani pelanggan dengan ramah</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Mengelola kebersihan outlet</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Membantu proses persiapan bahan baku</li>
+                            <li class="flex items-start gap-3 text-sm text-gray-400 font-light"><i class="fas fa-check-circle text-blue-400 text-xs mt-1.5 shrink-0"></i>Menjaga kepuasan pelanggan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex flex-col md:flex-row gap-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-white/10 rounded-full border-4 border-dark-900 z-10"></div>
+                <div class="md:w-1/2 md:pr-12 md:text-right">
+                    <div class="bg-white/[0.02] border border-dashed border-white/10 rounded-2xl p-6 lg:p-8 text-center">
+                        <i class="fas fa-plus-circle text-2xl text-gray-600 mb-3"></i>
+                        <p class="text-sm text-gray-600 font-light">Pengalaman berikutnya akan ditambahkan di sini</p>
+                    </div>
+                </div>
+                <div class="hidden md:block md:w-1/2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SERTIFIKAT ============ -->
+<section id="certificates" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-certificate"></i> Sertifikat</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Sertifikat & <span class="text-gradient">Pelatihan</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Sertifikat 1 -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/certs/cert-excel.jpg" alt="Sertifikat Excel" class="w-full h-full object-cover blog-img-overlay opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent"></div>
+                    <div class="absolute top-4 left-4"><span class="bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Verified</span></div>
+                    <div class="absolute bottom-4 left-4 right-4"><div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-2"><i class="fas fa-file-excel text-green-400 text-xl"></i></div></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2">Sertifikat Microsoft Excel</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4">Pelatihan Microsoft Excel tingkat lanjut meliputi formula, pivot table, dan macros.</p>
+                    <div class="flex items-center justify-between"><span class="text-xs text-gray-600"><i class="fas fa-calendar-alt mr-1"></i> 2023</span><span class="text-xs text-blue-400 font-medium cursor-pointer hover:underline">Lihat Detail →</span></div>
+                </div>
+            </div>
+            <!-- Sertifikat 2 -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/certs/Sertifikat_Saham.png" alt="Sertifikat Komputer" class="w-full h-full object-cover blog-img-overlay opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent"></div>
+                    <div class="absolute top-4 left-4"><span class="bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Verified</span></div>
+                    <div class="absolute bottom-4 left-4 right-4"><div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-2"><i class="fas fa-desktop text-blue-400 text-xl"></i></div></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2">Sertifikat Pelatihan Komputer</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4">Pelatihan dasar komputer meliputi OS, office suite, dan pengelolaan file digital.</p>
+                    <div class="flex items-center justify-between"><span class="text-xs text-gray-600"><i class="fas fa-calendar-alt mr-1"></i> 2023</span><span class="text-xs text-blue-400 font-medium cursor-pointer hover:underline">Lihat Detail →</span></div>
+                </div>
+            </div>
+            <!-- Sertifikat 3 -->
+            <div class="card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/certs/cert-coding.jpg" alt="Sertifikat Coding" class="w-full h-full object-cover blog-img-overlay opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent"></div>
+                    <div class="absolute top-4 left-4"><span class="bg-purple-500/20 text-purple-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Verified</span></div>
+                    <div class="absolute bottom-4 left-4 right-4"><div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-2"><i class="fas fa-code text-purple-400 text-xl"></i></div></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2">Sertifikat Dasar Pemrograman</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4">Pengenalan dasar pemrograman meliputi logika, algoritma, dan syntax dasar.</p>
+                    <div class="flex items-center justify-between"><span class="text-xs text-gray-600"><i class="fas fa-calendar-alt mr-1"></i> 2024</span><span class="text-xs text-blue-400 font-medium cursor-pointer hover:underline">Lihat Detail →</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section id="testimonials" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-quote-left"></i> Testimoni</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Apa Kata <span class="text-gradient">Mereka</span></h2>
+        </div>
+        <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="overflow-hidden rounded-3xl">
+                <div id="testimonialTrack" class="testimonial-track flex">
+                    <div class="w-full shrink-0 px-4">
+                        <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-3xl p-8 lg:p-12 text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-user-tie text-blue-400 text-2xl"></i></div>
+                            <div class="flex justify-center gap-1 mb-4"><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i></div>
+                            <p class="text-lg lg:text-xl text-gray-300 font-light leading-relaxed mb-6 italic">"Deni adalah pribadi yang rajin, disiplin, dan selalu bertanggung jawab terhadap pekerjaannya. Ia selalu tepat waktu dan dapat diandalkan dalam situasi apapun."</p>
+                            <div class="border-t border-white/5 pt-4"><h4 class="font-heading font-semibold text-white">Rekan Kerja</h4><p class="text-sm text-gray-500">Outlet Fried Chicken</p></div>
+                        </div>
+                    </div>
+                    <div class="w-full shrink-0 px-4">
+                        <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-3xl p-8 lg:p-12 text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-600/20 to-cyan-500/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-shopping-bag text-green-400 text-2xl"></i></div>
+                            <div class="flex justify-center gap-1 mb-4"><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i></div>
+                            <p class="text-lg lg:text-xl text-gray-300 font-light leading-relaxed mb-6 italic">"Pelayanannya ramah dan cepat. Selalu memberikan pengalaman yang baik saat berbelanja. Saya sangat puas dengan layanannya."</p>
+                            <div class="border-t border-white/5 pt-4"><h4 class="font-heading font-semibold text-white">Pelanggan</h4><p class="text-sm text-gray-500">Pelanggan Setia</p></div>
+                        </div>
+                    </div>
+                    <div class="w-full shrink-0 px-4">
+                        <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-3xl p-8 lg:p-12 text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-600/20 to-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-chalkboard-teacher text-purple-400 text-2xl"></i></div>
+                            <div class="flex justify-center gap-1 mb-4"><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star text-yellow-400 text-sm"></i><i class="fas fa-star-half-alt text-yellow-400 text-sm"></i></div>
+                            <p class="text-lg lg:text-xl text-gray-300 font-light leading-relaxed mb-6 italic">"Deni memiliki semangat belajar yang tinggi. Ia cepat menangkap materi dan selalu berusaha menerapkan apa yang dipelajari dalam pekerjaan sehari-hari."</p>
+                            <div class="border-t border-white/5 pt-4"><h4 class="font-heading font-semibold text-white">Instruktur Pelatihan</h4><p class="text-sm text-gray-500">Program Pelatihan Komputer</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-4 mt-8">
+                <button id="prevTestimonial" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"><i class="fas fa-chevron-left text-gray-400 text-sm"></i></button>
+                <div id="testimonialDots" class="flex gap-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-500 transition-all" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-white/20 transition-all" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-white/20 transition-all" data-index="2"></button>
+                </div>
+                <button id="nextTestimonial" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"><i class="fas fa-chevron-right text-gray-400 text-sm"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ BLOG / ARTIKEL ============ -->
+<section id="blog" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-1/3 -left-48 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-pen-nib"></i> Blog</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Artikel <span class="text-gradient">Terbaru</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="blog-card card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/blog/blog-excel.jpg" alt="Tips Excel" class="blog-img-overlay w-full h-full object-cover opacity-60">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/30 to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Microsoft Excel</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-600 mb-3"><span><i class="fas fa-calendar-alt mr-1"></i> 15 Jan 2024</span><span><i class="fas fa-clock mr-1"></i> 5 min</span></div>
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">10 Rumus Excel yang Wajib Dikuasai</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4 line-clamp-3">Pelajari rumus-rumus Excel paling penting yang akan meningkatkan produktivitas kerja Anda secara signifikan.</p>
+                    <button class="text-sm text-blue-400 font-medium hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i class="fas fa-arrow-right text-xs"></i></button>
+                </div>
+            </article>
+            <article class="blog-card card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/blog/blog-productivity.jpg" alt="Tips Produktivitas" class="blog-img-overlay w-full h-full object-cover opacity-60">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/30 to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Produktivitas</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-600 mb-3"><span><i class="fas fa-calendar-alt mr-1"></i> 28 Feb 2024</span><span><i class="fas fa-clock mr-1"></i> 4 min</span></div>
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">Tips Produktivitas untuk Pekerja Entry-Level</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4 line-clamp-3">Cara efektif mengelola waktu dan meningkatkan produktivitas di awal karir profesional Anda.</p>
+                    <button class="text-sm text-blue-400 font-medium hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i class="fas fa-arrow-right text-xs"></i></button>
+                </div>
+            </article>
+            <article class="blog-card card-hover bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="assets/img/blog/blog-coding.jpg" alt="Belajar Coding" class="blog-img-overlay w-full h-full object-cover opacity-60">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/30 to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-purple-500/20 text-purple-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Coding</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-600 mb-3"><span><i class="fas fa-calendar-alt mr-1"></i> 10 Mar 2024</span><span><i class="fas fa-clock mr-1"></i> 6 min</span></div>
+                    <h3 class="font-heading text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">Belajar Coding untuk Pemula: Mulai dari Mana?</h3>
+                    <p class="text-sm text-gray-500 font-light mb-4 line-clamp-3">Panduan langkah demi langkah bagi pemula yang ingin memulai perjalanan belajar pemrograman.</p>
+                    <button class="text-sm text-blue-400 font-medium hover:underline inline-flex items-center gap-1">Baca Selengkapnya <i class="fas fa-arrow-right text-xs"></i></button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section id="contact" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-4"><i class="fas fa-paper-plane"></i> Kontak</span>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Hubungi <span class="text-gradient">Saya</span></h2>
+        </div>
+        <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
+            <div class="lg:col-span-2 space-y-6" data-aos="fade-right" data-aos-delay="100">
+                <div class="flex items-center gap-4 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-5 group hover:border-blue-500/30 transition-all"><div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0"><i class="fas fa-user text-blue-400"></i></div><div><div class="text-xs text-gray-500 mb-0.5">Nama</div><div class="text-sm font-medium text-white">Deni Putra Aditya</div></div></div>
+                <div class="flex items-center gap-4 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-5 group hover:border-blue-500/30 transition-all"><div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0"><i class="fab fa-whatsapp text-green-400 text-lg"></i></div><div><div class="text-xs text-gray-500 mb-0.5">WhatsApp</div><div class="text-sm font-medium text-white">+62 812-XXXX-XXXX</div></div></div>
+                <div class="flex items-center gap-4 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-5 group hover:border-blue-500/30 transition-all"><div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0"><i class="fas fa-envelope text-cyan-400"></i></div><div><div class="text-xs text-gray-500 mb-0.5">Email</div><div class="text-sm font-medium text-white">deniputraaditya@email.com</div></div></div>
+                <div class="flex items-center gap-4 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-5 group hover:border-blue-500/30 transition-all"><div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0"><i class="fas fa-map-marker-alt text-purple-400"></i></div><div><div class="text-xs text-gray-500 mb-0.5">Lokasi</div><div class="text-sm font-medium text-white">Indonesia</div></div></div>
+                <div class="flex gap-3 pt-4">
+                    <a href="#" class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/30 transition-all group"><i class="fab fa-github text-gray-400 group-hover:text-blue-400 transition-colors"></i></a>
+                    <a href="#" class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/30 transition-all group"><i class="fab fa-linkedin-in text-gray-400 group-hover:text-blue-400 transition-colors"></i></a>
+                    <a href="#" class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-pink-500/20 hover:border-pink-500/30 transition-all group"><i class="fab fa-instagram text-gray-400 group-hover:text-pink-400 transition-colors"></i></a>
+                </div>
+            </div>
+            <div class="lg:col-span-3" data-aos="fade-left" data-aos-delay="200">
+                <form id="contactForm" class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-6 lg:p-10">
+                    <div class="space-y-5">
+                        <div><label class="block text-sm text-gray-400 font-medium mb-2">Nama Lengkap</label><input type="text" id="contactName" placeholder="Masukkan nama Anda" class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 outline-none transition-all"></div>
+                        <div><label class="block text-sm text-gray-400 font-medium mb-2">Email</label><input type="email" id="contactEmail" placeholder="Masukkan email Anda" class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 outline-none transition-all"></div>
+                        <div><label class="block text-sm text-gray-400 font-medium mb-2">Pesan</label><textarea id="contactMessage" rows="5" placeholder="Tulis pesan Anda di sini..." class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 outline-none transition-all resize-none"></textarea></div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="submit" id="sendWhatsApp" class="flex-1 inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-bold px-6 py-4 rounded-xl transition-all hover:-translate-y-0.5"><i class="fab fa-whatsapp"></i> Kirim via WhatsApp</button>
+                            <button type="button" id="sendEmail" class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold px-6 py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:-translate-y-0.5"><i class="fas fa-envelope"></i> Kirim via Email</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-white/5 py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+            <div>
+                <a href="#hero" class="flex items-center gap-2 mb-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-heading font-bold text-sm">D</div><span class="font-heading font-bold text-lg text-white">Deni Putra Aditya</span></a>
+                <p class="text-sm text-gray-600 font-light">&copy; 2024 Deni Putra Aditya. All rights reserved.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#about" class="text-sm text-gray-500 hover:text-white transition-colors">Tentang</a>
+                <a href="#skills" class="text-sm text-gray-500 hover:text-white transition-colors">Keahlian</a>
+                <a href="#experience" class="text-sm text-gray-500 hover:text-white transition-colors">Pengalaman</a>
+                <a href="#contact" class="text-sm text-gray-500 hover:text-white transition-colors">Kontak</a>
+            </div>
+            <div class="flex justify-end gap-3">
+                <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-blue-500/20 transition-all group"><i class="fab fa-github text-gray-500 group-hover:text-blue-400 transition-colors text-sm"></i></a>
+                <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-blue-500/20 transition-all group"><i class="fab fa-linkedin-in text-gray-500 group-hover:text-blue-400 transition-colors text-sm"></i></a>
+                <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-pink-500/20 transition-all group"><i class="fab fa-instagram text-gray-500 group-hover:text-pink-400 transition-colors text-sm"></i></a>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/5 text-center"><p class="text-xs text-gray-700 font-light">Dibuat dengan <i class="fas fa-heart text-blue-500 text-[10px]"></i> menggunakan HTML, CSS, JavaScript & Tailwind CSS</p></div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" class="hide fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 text-white rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center hover:-translate-y-1 transition-all"><i class="fas fa-chevron-up text-sm"></i></button>
+
+<!-- Libraries JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/js/script.js"></script>
+</body>
+</html>
